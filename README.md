@@ -1,6 +1,10 @@
 # BodyForge
 
-BodyForge is a real-time governance and safety control plane for embodied AI fleets operating in warehouses, factories, and mixed human-robot environments.
+Real-time governance and safety control plane for **embodied AI fleets** operating in warehouses, factories, and mixed human-robot environments.
+
+> **What this repo proves**
+>
+> The real software opportunity in embodied AI is not just autonomy. It is the control layer that makes autonomy governable, replayable, and safe to operate around humans.
 
 ![Overview](./screenshots/01-overview.png)
 

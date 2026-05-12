@@ -1,0 +1,116 @@
+{
+  "facility": "Northstar Fulfillment Robotics Campus",
+  "site": "Memphis West Autonomous Operations Hub",
+  "fleet": [
+    {
+      "robot_id": "rb-101",
+      "name": "Optic Lift 01",
+      "type": "humanoid-lift",
+      "zone": "Inbound Dock A",
+      "task": "pallet-breakdown",
+      "speed_mps": 1.4,
+      "battery_pct": 82,
+      "human_proximity_m": 2.4,
+      "override_ready": true,
+      "safety_policy": "dock-human-presence",
+      "last_override_minutes": 0
+    },
+    {
+      "robot_id": "rb-204",
+      "name": "Atlas Cart 04",
+      "type": "cart-runner",
+      "zone": "Cross-Aisle 3",
+      "task": "inventory-transfer",
+      "speed_mps": 2.1,
+      "battery_pct": 63,
+      "human_proximity_m": 1.1,
+      "override_ready": true,
+      "safety_policy": "aisle-speed-limit",
+      "last_override_minutes": 18
+    },
+    {
+      "robot_id": "rb-311",
+      "name": "Sentinel Arm 11",
+      "type": "fixed-sort-arm",
+      "zone": "Sort Bay 2",
+      "task": "parcel-diversion",
+      "speed_mps": 0.8,
+      "battery_pct": 100,
+      "human_proximity_m": 3.7,
+      "override_ready": true,
+      "safety_policy": "guarded-workcell",
+      "last_override_minutes": 0
+    },
+    {
+      "robot_id": "rb-408",
+      "name": "Pathfinder 08",
+      "type": "humanoid-picker",
+      "zone": "High-Bay Row 7",
+      "task": "case-pick",
+      "speed_mps": 1.9,
+      "battery_pct": 41,
+      "human_proximity_m": 1.6,
+      "override_ready": false,
+      "safety_policy": "ladder-zone-restriction",
+      "last_override_minutes": 42
+    }
+  ],
+  "events": [
+    {
+      "event_id": "evt-9001",
+      "timestamp": "2026-05-12T13:06:00Z",
+      "robot_id": "rb-204",
+      "zone": "Cross-Aisle 3",
+      "severity": "high",
+      "event_type": "near-collision",
+      "human_present": true,
+      "policy_triggered": "aisle-speed-limit",
+      "handoff_chain": ["robot-safety-daemon", "aisle-supervisor", "human-floor-lead"],
+      "override_applied": true,
+      "resolution_state": "contained",
+      "distance_m": 0.62
+    },
+    {
+      "event_id": "evt-9002",
+      "timestamp": "2026-05-12T13:11:00Z",
+      "robot_id": "rb-101",
+      "zone": "Inbound Dock A",
+      "severity": "medium",
+      "event_type": "human-proximity-slowdown",
+      "human_present": true,
+      "policy_triggered": "dock-human-presence",
+      "handoff_chain": ["dock-guardian", "robot-safety-daemon"],
+      "override_applied": false,
+      "resolution_state": "stabilized",
+      "distance_m": 1.2
+    },
+    {
+      "event_id": "evt-9003",
+      "timestamp": "2026-05-12T13:17:00Z",
+      "robot_id": "rb-408",
+      "zone": "High-Bay Row 7",
+      "severity": "critical",
+      "event_type": "zone-policy-violation",
+      "human_present": false,
+      "policy_triggered": "ladder-zone-restriction",
+      "handoff_chain": ["path-planner", "robot-safety-daemon", "human-floor-lead"],
+      "override_applied": true,
+      "resolution_state": "halted",
+      "distance_m": 0.0
+    },
+    {
+      "event_id": "evt-9004",
+      "timestamp": "2026-05-12T13:22:00Z",
+      "robot_id": "rb-311",
+      "zone": "Sort Bay 2",
+      "severity": "low",
+      "event_type": "task-handoff-delay",
+      "human_present": false,
+      "policy_triggered": "guarded-workcell",
+      "handoff_chain": ["sort-coordinator", "cell-scheduler"],
+      "override_applied": false,
+      "resolution_state": "cleared",
+      "distance_m": 0.0
+    }
+  ]
+}

@@ -30,7 +30,7 @@ Real-time governance and safety control plane for **embodied AI fleets** operati
 ## Local run
 
 ```powershell
-Set-Location "C:\Users\chaus\dev\repos\bodyforge"
+cd bodyforge
 py -3.11 -m venv .venv
 .\.venv\Scripts\pip.exe install -r requirements.txt
 .\.venv\Scripts\python.exe -m app.main
